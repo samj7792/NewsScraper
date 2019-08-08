@@ -5,7 +5,8 @@ $.getJSON("/articles", function(data) {
     // Display the apropos information on the page
     var info = "<p data-id='" + data[i]._id + "'>";
     info += data[i].title + "<br>";
-    info += "<a href='https://nytimes.com" + data[i].link + "'>Click here to visit the article</a>"
+    info += "<a href='https://nytimes.com" + data[i].link;
+    info += "'>Click here to visit the article</a>"
     $("#articles").append(info);
   }
 });
