@@ -51,6 +51,9 @@ app.get("/scrape", function(req, res) {
       result.title = $(this)
         .children("a")
         .text();
+      result.summary = $(this)
+        .siblings("p")
+        .text();
       result.link = $(this)
         .children("a")
         .attr("href");

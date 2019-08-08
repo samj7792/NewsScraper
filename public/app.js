@@ -4,10 +4,14 @@ $.getJSON("/articles", function(data) {
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
     var info = "<p data-id='" + data[i]._id + "'>";
-    info += data[i].title + "<br>";
+    info += "<p><strong>" + data[i].title + "</strong></p>";
+    info += data[i].summary + "<br>";
     info += "<a href='https://nytimes.com" + data[i].link;
-    info += "'>Click here to visit the article</a>"
+    info += "'>Click here to visit the article</a> ";
     $("#articles").append(info);
+
+    var saveBtn = "<a class='btn btn-success'>Button</a><br><br>";
+    $("#articles").append(saveBtn);
   }
 });
 
