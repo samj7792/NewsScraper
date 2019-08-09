@@ -32,7 +32,7 @@ $.getJSON("/saved", function(data) {
   $("#articles").append(info);
 
   var saveBtn = "<a id='note' data-id='" + data[i]._id;
-  saveBtn += "' class='btn btn-warning'>Add Note</a><br><br>";
+  saveBtn += "' class='btn btn-warning'>Add Note</a><br><br><hr>";
   $("#articles").append(saveBtn);
 }
 })
