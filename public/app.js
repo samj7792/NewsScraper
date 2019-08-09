@@ -15,7 +15,7 @@ $.getJSON("/articles", function(data) {
     $("#articles").append(saveBtn);
 
     var noteBtn = "<a id='note' data-id='" + data[i]._id;
-    noteBtn += "' class='btn btn-warning'>Add Note</a><br><br>"
+    noteBtn += "' class='btn btn-warning'>Add Note</a><br><br><hr>"
     $("#articles").append(noteBtn);
   }
 });
@@ -84,19 +84,16 @@ $(document).on("click", "#note", function() {
         title += data.title[i];
       }
       $("#notes").append("<h2>" + title + "...</h2>");
-      // An input to enter a new title
-      $("#notes").append("Note Title<input id='titleinput' name='title' >");
       // A textarea to add a new note body
-      $("#notes").append("Note Body<textarea id='bodyinput' name='body'></textarea>");
+      $("#notes").append("Note<textarea id='bodyinput' name='body'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
 
       // If there's a note in the article
       if (data.note) {
-        // Place the title of the note in the title input
-        $("#titleinput").val(data.note.title);
         // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
+        $("#notes").prepend(data.note.body + "<a class='btn btn-danger' href='/deletenote'>Delete Note</a>");
+        $("#notes").prepend("<h6>Saved Notes</h6>");
       }
     });
 });
@@ -111,8 +108,6 @@ $(document).on("click", "#savenote", function() {
     method: "POST",
     url: "/articles/" + thisId,
     data: {
-      // Value taken from title input
-      title: $("#titleinput").val(),
       // Value taken from note textarea
       body: $("#bodyinput").val()
     }

@@ -101,6 +101,10 @@ app.get("/delete",function(req,res) {
     });
 });
 
+app.get("/deletenote", function(req,res) {
+    db.Article.find
+});
+
 app.get("/saved", function(req,res) {
     db.Saved.find({})
     .then(function(dbSaved) {
