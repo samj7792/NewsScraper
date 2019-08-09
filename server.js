@@ -38,7 +38,7 @@ mongoose.connect(MONGODB_URI);
 // Routes
 
 app.get("/", function(req,res) {
-    res.send("index")
+    res.redirect("/")
 })
 
 // A GET route for scraping the echoJS website
