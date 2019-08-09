@@ -31,8 +31,8 @@ $.getJSON("/saved", function(data) {
   info += "'>Click here to visit the article</a> ";
   $("#articles").append(info);
 
-  var saveBtn = "<a id='save' data-id='" + data[i]._id;
-  saveBtn += "' class='btn btn-success'>Save Article</a><br><br>";
+  var saveBtn = "<a id='note' data-id='" + data[i]._id;
+  saveBtn += "' class='btn btn-warning'>Add Note</a><br><br>";
   $("#articles").append(saveBtn);
 }
 })
