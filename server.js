@@ -98,8 +98,54 @@ app.get("/delete",function(req,res) {
     })
     .catch(function(err) {
         res.json(err);
+    });
+});
+
+app.get("/saved", function(req,res) {
+    db.Saved.find({})
+    .then(function(dbSaved) {
+        res.json(dbSaved);
+        res.redirect("/");
     })
-})
+    .catch(function(err) {
+        res.json(err);
+    });
+});
+
+app.post("/saved", function(req,res) {
+    console.log("--");
+    console.log(req.body.id);
+    console.log("--");
+    let savedId = req.body.id;
+    
+    db.Article.find(
+        { _id: savedId }, 
+    )
+    .then(function(dbArticle) {
+        console.log("-");
+        res.json(dbArticle);
+        console.log("-")
+        // db.Saved.create(dbArticle)
+        // .then(function(dbSaved) {
+        //     console.log(dbSaved);
+        // });
+        //res.redirect("/");
+    });
+});
+
+app.post("/saved/:id", function(req,res) {
+    console.log(req.body);
+    db.Saved.create(req.body)
+    .then(function(dbSaved) {
+        console.log(dbSaved);
+    });
+});
+
+
+// app.get("/saved", function(req,res) {
+// });
+
+
 
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function(req, res) {

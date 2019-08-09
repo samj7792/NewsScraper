@@ -5,13 +5,34 @@
     <title>Scraping With Mongoose</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body { background-color: #F2F6D0 }
+        #notes {
+          float: right;
+          /* width: 30%; */
+        }
+        textarea, input {
+          display: block;
+          width: 100%;
+          background-color: #FCF5C7;
+        }
+        input {
+          height: 36px;
+          font-size: 24px;
+        }
+        textarea {
+          height: 200px;
+          font-size: 18px;
+        }
+      </style>
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
         <h1>News Scraper</h1>
-        <a href="/scrape" class="btn btn-primary">Scrape</a>
-        <a href="/delete" class="btn btn-danger">Clear</a>
+        <a href="/scrape" id="scrape" class="btn btn-primary">Scrape</a>
+        <a href="/delete" class="btn btn-danger">Show Saved</a>
+        <!-- <a href="/saved" id="saved" class="btn btn-success">Show Saved</a> -->
       </div>
       <div class="row">
         <div class="col-8">
